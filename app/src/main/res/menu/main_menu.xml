@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/firstView"
+        android:title="@string/first_view"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/secondView"
+        android:title="@string/first_view"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/thirdView"
+        android:title="@string/first_view"
+        app:showAsAction="ifRoom"/>
+</menu>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MenusTask</string>
+    <string name="first_view">First view</string>
+    <string name="second_view">Second view</string>
+    <string name="third_view">Third view</string>
+</resources>
