@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">MenusTask</string>
-    <string name="first_view">First view</string>
-    <string name="second_view">Second view</string>
-    <string name="third_view">Third view</string>
+    <string name="first_view">Top view</string>
+    <string name="second_view">Middle view</string>
+    <string name="third_view">Bottom view</string>
+    <string name="color_accent">Accent</string>
+    <string name="color_sky">Sky</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_orange">Orange</string>
 </resources>

@@ -6,6 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarPopupTheme">@style/AppOptionsMenu</item>
+    </style>
+
+    <style name="AppOptionsMenu" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColorPrimary">@color/colorSky</item>
+        <item name="android:background">@drawable/app_menu_main</item>
     </style>
 
 </resources>

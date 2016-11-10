@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/firstView"
+    <item android:id="@+id/topViewAction"
         android:title="@string/first_view"
-        app:showAsAction="ifRoom"/>
-    <item android:id="@+id/secondView"
-        android:title="@string/first_view"
-        app:showAsAction="ifRoom"/>
-    <item android:id="@+id/thirdView"
-        android:title="@string/first_view"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never"
+        android:checkable="true"
+        android:checked="true"/>
+    <item android:id="@+id/middleViewAction"
+        android:title="@string/second_view"
+        app:showAsAction="never"
+        android:checkable="true"
+        android:checked="true"/>
+    <item android:id="@+id/bottomViewAction"
+        android:title="@string/third_view"
+        app:showAsAction="never"
+        android:checkable="true"
+        android:checked="true"/>
 </menu>
