@@ -9,20 +9,24 @@ import android.view.animation.AnimationUtils;
  * Created by webprog26 on 10.11.2016.
  */
 
-public class ViewStateUtils {
+class ViewStateUtils {
 
-    private Activity mActivity;
     private Animation mAnimationIn;
     private Animation mAnimationOut;
 
+    private static final int ERROR_WHILE_GETTING_VIEW_BACKGROUND_COLOR = 0;
 
-    public ViewStateUtils(Activity mActivity) {
-        this.mActivity = mActivity;
-        mAnimationIn = AnimationUtils.loadAnimation(mActivity, R.anim.combination_in);
-        mAnimationOut = AnimationUtils.loadAnimation(mActivity, R.anim.combination_out);
+    ViewStateUtils(Activity activity) {
+        mAnimationIn = AnimationUtils.loadAnimation(activity, R.anim.combination_in);
+        mAnimationOut = AnimationUtils.loadAnimation(activity, R.anim.combination_out);
     }
 
-    public void changeViewVisibilityState(View view, boolean isVisible){
+    /**
+     * Changes View visibility using animation (rotate, scale, translate)
+     * @param view {@link View}
+     * @param isVisible boolean
+     */
+    void changeViewVisibilityState(View view, boolean isVisible){
         if(isVisible){
             view.startAnimation(mAnimationIn);
             view.setVisibility(View.VISIBLE);
@@ -32,9 +36,14 @@ public class ViewStateUtils {
         }
     }
 
-    public static void changeViewBackgroundColor(View view, int color)
+    /**
+     * Changes background color of the {@link View}
+     * @param view {@link View}
+     * @param color int
+     */
+    static void changeViewBackgroundColor(View view, int color)
     {
-        if(color != 0){
+        if(color != ERROR_WHILE_GETTING_VIEW_BACKGROUND_COLOR){
             view.setBackgroundColor(color);
         }
     }
