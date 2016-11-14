@@ -56,11 +56,4 @@ class UiHandler extends Handler{
                 return null;
         }
     }
-
-    /**
-     * Clears current MessagesQueue to avoid memory leaks
-     */
-    public void clearMessagesQueue(){
-        clearMessagesQueue();
-    }
 }
