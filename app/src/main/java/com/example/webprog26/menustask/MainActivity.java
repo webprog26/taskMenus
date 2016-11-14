@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private View mTopView;
     private View mMidView;
     private View mBotView;
-    private PreferencesUtils mPreferencesUtils;
-    private ViewStateUtils mViewStateUtils;
     private View mView;
     private SharedPrefsThread mSharedPrefsThread;
     private UiHandler mUiHandler;
@@ -34,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mViewStateUtils = new ViewStateUtils(this);
 
         //Fragments initializing
         Fragment topFragment = getSupportFragmentManager().findFragmentById(R.id.topFragmentView);
@@ -56,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         //Separate class to run preferences operations
-        mPreferencesUtils = new PreferencesUtils(sharedPreferences);
+        PreferencesUtils mPreferencesUtils = new PreferencesUtils(sharedPreferences);
 
         //UI Handler to run operations with the views
-        mUiHandler = new UiHandler(mTopView, mMidView, mBotView, mViewStateUtils);
+        mUiHandler = new UiHandler(mTopView, mMidView, mBotView, new ViewStateUtils(this));
 
         //Separate HandlerThread to run SharedPreferences write/read operations asynchronously
         mSharedPrefsThread = new SharedPrefsThread(mPreferencesUtils, mUiHandler);
@@ -95,17 +91,17 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.topViewAction:
                     item.setChecked(!item.isChecked());
                     mSharedPrefsThread.writeViewStateToSharedPrefs(IS_TOP_FRAGMENT_VISIBLE, item.isChecked());
-                    mViewStateUtils.changeViewVisibilityState(mTopView, item.isChecked());
+                    new ViewStateUtils(this).changeViewVisibilityState(mTopView, item.isChecked());
                     return true;
                 case R.id.middleViewAction:
                     item.setChecked(!item.isChecked());
                     mSharedPrefsThread.writeViewStateToSharedPrefs(IS_MID_FRAGMENT_VISIBLE, item.isChecked());
-                    mViewStateUtils.changeViewVisibilityState(mMidView, item.isChecked());
+                    new ViewStateUtils(this).changeViewVisibilityState(mMidView, item.isChecked());
                     return true;
                 case R.id.bottomViewAction:
                     item.setChecked(!item.isChecked());
                     mSharedPrefsThread.writeViewStateToSharedPrefs(IS_BOT_FRAGMENT_VISIBLE, item.isChecked());
-                    mViewStateUtils.changeViewVisibilityState(mBotView, item.isChecked());
+                    new ViewStateUtils(this).changeViewVisibilityState(mBotView, item.isChecked());
                     return true;
             }
         return super.onOptionsItemSelected(item);
